@@ -39,12 +39,14 @@ public class Program {
                 if(capturedPiece != null){
                     capturedPieces.add(capturedPiece);
                 }
+
+                if(chessMatch.getPromoted() != null){
+                    System.out.print("Insert piece for promotion (N/R/Q/B): ");
+                    String type = sc.nextLine();
+                    chessMatch.replacePromotedPiece(type);
+                }
              }
-           catch (ChessException e){
-                System.out.println(e.getMessage());
-                sc.nextLine();
-            }
-            catch (InputMismatchException e){
+           catch (ChessException | InputMismatchException e){
                 System.out.println(e.getMessage());
                 sc.nextLine();
             }
